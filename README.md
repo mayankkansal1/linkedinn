@@ -66,3 +66,29 @@ Authenticated users can create and publish new posts.
 # Logout
 
 Users can log out.
+
+# npm installations
+
+## react-router
+
+npm install react-router-dom
+
+## json-server
+
+npm i json-server
+
+## react-hook-form
+
+npm install react-hook-form
+
+## tailwind css
+
+npm install -D tailwindcss
+
+## material ui
+
+npm install @mui/material @emotion/react @emotion/styled
+
+## react-redux
+
+npm install react-redux
