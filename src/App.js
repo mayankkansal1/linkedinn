@@ -1,56 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from 'react';
+// import Header from './Header';
+// import Sidebar from './Sidebar';
+// import Feed from './Feed';
+// import Widgets from './Widgets';
+// import Home from "./pages/Home"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import Demo from './Demo';
+import LoginPage from "./pages/LoginPage"
+import SignupPage from "./pages/SignupPage"
+import { useDispatch, useSelector } from 'react-redux';
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from './auth/authSlice';
+import Protected from './protected';
+import Logout from './auth/components/LogOut';
+import { fetchLoggedInUserAsync } from './user/userSlice';
+import Profile from './user/profile';
+import PageNotFound from './pages/404';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (<Protected>
+      <Demo></Demo></Protected>
+    )
+  },
+  {
+    path: '/login',
+    element: <LoginPage></LoginPage>,
+  },
+  // {
+  //   path: '/logout',
+  //   element: <Logout></Logout>,
+  // },
+  {
+    path: '/signup',
+    element: <SignupPage></SignupPage>,
+  },
+  {
+    path: '/profile',
+    element: <Profile></Profile>,
+  }
+  ,
+  {
+    path: '*',
+    element: <PageNotFound></PageNotFound>,
+  }
+])
 function App() {
+  const dispatch = useDispatch()
+  const user = useSelector(selectLoggedInUser)
+  const userChecked = useSelector(selectUserChecked)
+
+  useEffect(() => {
+    dispatch(checkAuthAsync());
+  }, [dispatch]);
+  useEffect(() => {
+    if (user) {
+      // we can get req.user by token on backend so no need to give in front-end
+      dispatch(fetchLoggedInUserAsync());
+    }
+  }, [dispatch, user]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="m-0" >
+      {userChecked && (
+        <RouterProvider router={router} />
+      )}
+
     </div>
   );
 }
