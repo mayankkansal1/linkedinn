@@ -33,7 +33,7 @@ export function loginUser(loginInfo) {
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:8080/user/auth');
+      const response = await fetch('http://localhost:8080/users/auth');
       if (response.ok) {
         const data = await response.json();
         resolve({ data });

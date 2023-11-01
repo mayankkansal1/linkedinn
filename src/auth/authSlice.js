@@ -84,7 +84,7 @@ export const authSlice = createSlice({
       })
       .addCase(checkAuthAsync.rejected, (state, action) => {
         state.status = 'idle';
-        state.userChecked = true;
+        state.userChecked = false;
       })
       .addCase(signOutAsync.pending, (state) => {
         state.status = 'loading';

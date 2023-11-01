@@ -351,16 +351,15 @@
         "fiction"
       ],
       "reactions": 0
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
     }
   ],
   "users": [
-    {
-      "email": "mayankkansal1@gmail.com",
-      "password": "Qwerty123",
-      "addresses": [],
-      "role": "user",
-      "id": 1
-    },
     {
       "email": "mayankkansal1@gmail.com",
       "password": "Qwerty123",

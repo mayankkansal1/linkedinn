@@ -1,0 +1,8 @@
+NPM Used
+
+json-server
+react-hook-form
+react router
+
+tailwind css- for styling
+material ui- for Icons

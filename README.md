@@ -44,3 +44,25 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Functionalities
+
+The application provides the following key functionalities:
+
+# User Registration (Signup):
+
+New users can create an account by providing their email and password.
+User details are stored in the data.json.
+
+# User Authentication (Login):
+
+Registered users can log in to their accounts using their email and password.
+Upon successful login, users gain access to their dashboard.
+
+# Add a Post:
+
+Authenticated users can create and publish new posts.
+
+# Logout
+
+Users can log out.

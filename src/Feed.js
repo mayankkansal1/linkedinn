@@ -42,7 +42,6 @@ function Feed() {
                             onSubmit={handleSubmit((data) => {
                                 dispatch(addToPostAsync({
                                     body: data.description
-
                                 }))
                             })}
                             type='text'
