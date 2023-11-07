@@ -13,10 +13,10 @@ function Feed() {
     // const [input, setInput] = useState([]);
     const dispatch = useDispatch()
     // const user = useSelector(selectLoggedInUser)
-    const handlePost = (e) => {
-        e.preventDefault()
-        dispatch(addToPostAsync())
-    }
+    // const handlePost = (e) => {
+    //     e.preventDefault()
+    //     dispatch(addToPostAsync())
+    // }
     const {
         register,
         handleSubmit,
@@ -29,25 +29,21 @@ function Feed() {
                 <div className='flex border rounded-3xl solid p-2 pl-4'>
                     <Avatar />
                     <form className='flex w-full'
-                    // onSubmit={handleSubmit((data) => {
-                    //     dispatch(addToPostAsync({
-                    //         body: data.description
+                        onSubmit={handleSubmit((data) => {
+                            dispatch(addToPostAsync({
+                                body: data.body
 
-                    //     }))
-                    // })}
+                            }))
+                            console.log(data)
+                        })}
                     >
                         <input className='border-none ml-2 font-semibold outline-0 rounded-lg w-full'
-                            // value={input}
-                            // onChange={e => setInput(e.target.value)}
-                            onSubmit={handleSubmit((data) => {
-                                dispatch(addToPostAsync({
-                                    body: data.description
-                                }))
-                            })}
+                            id='body'
+                            {...register('body')}
                             type='text'
                             placeholder='Start a post Here' />
                         <button
-                            onClick={handlePost}
+                            // onClick={handlePost}
                             type='submit'>Send</button>
                     </form>
                 </div>

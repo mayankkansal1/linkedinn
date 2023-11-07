@@ -9,7 +9,7 @@ const initialState = {
 
 
 export const fetchAllPostsAsync = createAsyncThunk(
-    'posts/fetchAllPosts',
+    'post/fetchAllPosts',
     async () => {
         const response = await fetchAllPosts();
         // The value we return becomes the `fulfilled` action payload
@@ -17,7 +17,7 @@ export const fetchAllPostsAsync = createAsyncThunk(
     }
 );
 export const incrementAsync = createAsyncThunk(
-    'posts/fetchCount',
+    'post/fetchCount',
     async (amount) => {
         const response = await fetchCount(amount);
         // The value we return becomes the `fulfilled` action payload
