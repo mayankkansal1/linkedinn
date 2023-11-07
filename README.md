@@ -77,6 +77,10 @@ npm install react-router-dom
 
 npm i json-server
 
+# To start server
+
+json-server --watch .\src\data.json --port 8080
+
 ## react-hook-form
 
 npm install react-hook-form
